@@ -4,3 +4,54 @@ html,
 body {
   height: 100%;
 }
+
+.glass {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.glass::before,
+.glass::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -20px;
+  height: 100%;
+  width: 15px;
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: skewX(-45deg);
+  transition: all 0.3s ease-in;
+}
+
+@media (width > 768px) {
+  .glass:hover::after,
+  .glass:hover::before {
+    animation: reflect 1s ease-in-out;
+  }
+}
+
+@media (width < 768px) {
+  .glass::before,
+  .glass::after {
+    animation: reflect 1s ease-in-out;
+  }
+}
+
+@keyframes reflect {
+  0%,
+  100% {
+    transform: translateX(0) skewX(-45deg);
+  }
+  50% {
+    transform: translateX(70px) skewX(-45deg);
+  }
+}
+
+header .side-nav {
+  transition: all 0.3s;
+}
+
+.slide {
+  left: 0;
+}
