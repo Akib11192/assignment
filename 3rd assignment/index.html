@@ -13,7 +13,8 @@
 
 <body class="">
     <header class="fixed top-3 md:m-auto min-w-full z-50">
-        <div class=" p-3 max-w-6xl lg:m-auto lg:rounded-4xl flex flex-row justify-between items-center shadow-2xl">
+        <div
+            class=" p-3 max-w-6xl lg:m-auto lg:rounded-4xl bg-(--bg-primary) flex flex-row justify-between items-center shadow-gray-800 shadow-2xl">
             <div class="hamberger-menu h-7 w-8  flex flex-col justify-between md:hidden ">
                 <div class="line line1 w-8 h-1.5 bg-(--text-primary) rounded-xl"></div>
                 <div class="line line2 w-8 h-1.5 bg-(--text-primary) rounded-xl"></div>
@@ -57,10 +58,10 @@
             </div>
             <div class="flex flex-col justify-between h-2/3 mt-4">
                 <nav class="flex flex-col text-(--text-primary)">
-                    <a href="#home" class="p-1 uppercase border-b-2 hover:scale-105">home</a>
-                    <a href="#about" class="p-1 uppercase border-b-2 hover:scale-105">about me</a>
-                    <a href="#service" class="p-1 uppercase border-b-2 hover:scale-105">service</a>
-                    <a href="#contact" class="p-1 uppercase border-b-2 hover:scale-105">contact</a>
+                    <a href="#home" id="home-btn" class="p-1 uppercase border-b-2 hover:scale-105">home</a>
+                    <a href="#about" id="about-3" class="p-1 uppercase border-b-2 hover:scale-105">about me</a>
+                    <a href="#service" id="service-btn" class="p-1 uppercase border-b-2 hover:scale-105">service</a>
+                    <a href="#contact" id="contact-btn" class=" p-1 uppercase border-b-2 hover:scale-105">contact</a>
                 </nav>
                 <div class="theme-changer-side-nav text-(--text-primary) flex justify-between items-center">
                 </div>
@@ -68,11 +69,89 @@
         </div>
     </header>
 
-    <main class="hero relative h-full w-full ">
-        <div class="absolute h-full w-full  flex items-center justify-center bg-(--bg-primary) "><img
+    <main id="home" class="hero relative h-full w-full ">
+        <div class="absolute h-full w-full  flex items-center justify-center bg-(--bg-primary) z-0 "><img
                 src="./images/name-logo-black.svg" alt=""
-                class="w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px]">
+                class="w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px] drop-shadow-gray-800 drop-shadow-2xl">
         </div>
+
+
+
+
+
+        <div id="about-me" class="about-me fixed h-full w-full flex items-center justify-center z-99 bg-gray-600">
+            <div class=" relative w-[90%] h-[90%] p-5 lg:p-10 bg-(--bg-about) rounded-2xl flex  md:flex-row">
+                <div
+                    class="about-cross absolute top-2 right-2 h-6 w-6 rounded-full bg-(--bg-primary) text-(--text-primary) flex justify-center items-center group">
+                    <i class="fa-solid fa-xmark transition-all duration-300 group-hover:rotate-90"></i>
+                </div>
+
+
+
+                <div
+                    class="hero text-(--text-primary) w-full lg:w-1/2 p-2 flex flex-col justify-between lg:items-start items-center ">
+                    <h2 class="uppercase text-2xl">about me</h2>
+                    <p class="text-(--text-primary)">I help business owners and busy web developers to design & develop
+                        creative
+                        websites
+                        that fits
+                        their
+                        vision and attracts the visitors to stay for ever. Technologies and tools that I
+                        use
+                        to create
+                        such
+                        awesome websites.</p>
+
+                    <div class="skills">
+                        <ul class="about-me-detail flex flex-wrap gap-1 text-(--text-primay) ">
+                            <li>#javascript</li>
+                            <li>#react.js</li>
+                            <li>#redux</li>
+                            <li>#node.js</li>
+                            <li>#express.js</li>
+                            <li>#mongoDB</li>
+                            <li>#mongoose</li>
+                            <li>#cloudinary</li>
+                            <li>#ejs</li>
+                            <li>#html</li>
+                            <li>#css</li>
+                            <li>#sass</li>
+                            <li>#bootstrap</li>
+                            <li>#tailwind</li>
+                            <li>#git</li>
+                            <li>#github</li>
+                            <li>#aws</li>
+                            <li>#terminal</li>
+                            <li>#adobeXD</li>
+                            <li>#figma</li>
+                        </ul>
+                    </div>
+                    <h2 class="uppercase text-(--text-primary) text-2xl">mern stack</h2>
+                    <div class="stack flex flex-row gap-7  justify-center items-center lg:items-start">
+                        <div class="relative ">
+                            <img src="./images/mongodb.svg" alt="">
+                            <p class="text-6xl text-[#47a248]">M</p>
+                        </div>
+                        <div class="relative ">
+                            <img src="./images/express.svg" alt="">
+                            <p class="text-6xl text-[#ffffff]">E</p>
+                        </div>
+                        <div class="relative ">
+                            <img src="./images/react.svg" alt="">
+                            <p class="text-6xl text-[#61dafb]">R</p>
+                        </div>
+                        <div class="relative ">
+                            <img src="./images/node.svg" alt="">
+                            <p class="text-6xl text-[#8cc84b]">N</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden lg:flex items-center md:w-1/2">
+                    <img src="./images/coder.svg" alt="">
+                </div>
+            </div>
+        </div>
+
 
 
 
@@ -92,8 +171,8 @@
                 </div>
                 </p>
                 <div>
-                    <div
-                        class=" h-10 w-35 rounded-2xl  flex flex-row gap-6 uppercase font-bold justify-center items-center text-(--text-primary) bg-gradient-to-r from-red-500 to-pink-500 hover:scale-105 transition-all duration-200">
+                    <div id="about-2"
+                        class="about-2 h-10 w-35 rounded-2xl  flex flex-row gap-6 uppercase font-bold justify-center items-center border-2 border-(--bg-primary) text-(--text-primary) bg-(--bg-primary) shadow-gray-800 shadow-2xl hover:scale-105 transition-all duration-200">
                         about
                         me
                         <i class="fa-solid fa-right-long  "></i>
@@ -101,7 +180,7 @@
                 </div>
             </div>
             <div
-                class="hero-social  text-(--text-primary) rounded-2xl p-2 font-bold flex items-center justify-center flex-col gap-10 shadow-xl ">
+                class="hero-social  text-(--text-primary) rounded-2xl p-2 font-bold flex items-center justify-center flex-col gap-10 shadow-gray-800 shadow-2xl ">
                 <a href="#" class="relative group flex items-center gap-2">
                     <i
                         class="fa-brands fa-facebook group-hover:scale-105 text-2xl group-hover:text-blue-400 transition-all duration-300"></i>
@@ -138,14 +217,115 @@
                         linkedin</p>
                 </a>
             </div>
+
         </div>
     </main>
 
 
+    <section id="contact" class="contact bg-(--bg-primary) pt-25 ">
+        <div class="max-w-6xl m-auto flex flex-col items-center justify-between shadow-gray-800 shadow-2xl p-5 gap-5">
+            <h2 class="text-2xl uppercase text-(--text-primary)">contact us</h2>
+            <div class="flex flex-col md:flex-row items-center justify-center  w-full">
+                <div class="contact-form ">
+                    <form action="#" class="p-10 flex flex-col gap-8">
+                        <div class="name flex justify-between gap-5 text-(--text-primary) w-full">
+                            <div class=" flex flex-col md:w-1/2  ">
+                                <label for="firstname" class="text-xl uppercase">first name *</label>
+                                <input type="text" class="border-b-2 outline-none bg-transparent">
+                            </div>
+                            <div class=" flex md:w-1/2 flex-col">
+                                <label for="lastname" class="text-xl uppercase">last name *</label>
+                                <input type="text" class="border-b-2 outline-none bg-transparent">
+                            </div>
+                        </div>
+                        <div class=" flex flex-col text-(--text-primary)">
+                            <label for="profession" class="text-xl uppercase">profession</label>
+                            <input type="text" class="border-b-2 outline-none bg-transparent">
+                        </div>
+                        <div class=" flex flex-col text-(--text-primary)">
+                            <label for="number" class="text-xl uppercase">Phone *</label>
+                            <input type="tel" class="border-b-2 outline-none bg-transparent">
+                        </div>
+                        <div class=" flex flex-col text-(--text-primary) ">
+                            <label for="email" class="text-xl uppercase">email</label>
+                            <input type="email" class="border-b-2 outline-none bg-transparent">
+                        </div>
+                        <div class=" flex flex-col gap-3 text-(--text-primary)">
+                            <label for="messege" class="text-xl uppercase">Write your mind</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Write your message here..."
+                                class="w-full p-3 border rounded-lg focus:outline-none"></textarea>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="" id="">
+                            <label for="checkbox" class="text-(--text-primary)">I'd like to have more information about
+                                you. I understand the tearms
+                                and agree to the privecy policy</label>
+                        </div>
+                        <div class="flex justify-center items-center">
+                            <button
+                                class="w-full h-10 uppercase font-bold rounded-2xl text-lg text-(--text-primary) bg-red-600">submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <footer class="bg-(--bg-primary) text-(--text-primary)  py-10 z-0">
+        <div
+            class="max-w-6xl mx-auto p-10 mt-10 flex-col flex md:flex-row md:justify-between shadow-gray-800 shadow-2xl">
+
+            <div class="mb-6 md:mb-0">
+                <h1 class="text-red-500 text-2xl font-bold">Akibgoto</h1>
+                </Link>
+                <p class="mt-2 text-sm">
+                    Decorating the browser for the future
+                </p>
+                <p class="mt-2 text-sm">Muradpur , Sitakunda , Chittagong</p>
+                <p class="text-sm">Email: akibgoto@gmail.com</p>
+                <p class="text-sm">Phone: (123) 456-7890</p>
+            </div>
+            <div class="mb-6 md:mb-0">
+                <h3 class="text-xl font-semibold">Customer Service</h3>
+                <ul class="mt-2 text-sm space-y-2">
+                    <li>Contact Us</li>
+                    <li>Shipping & Returns</li>
+                    <li>FAQs</li>
+                    <li>Order Tracking</li>
+                    <li>Size Guide</li>
+                </ul>
+            </div>
+            <div class="mb-6 md:mb-0">
+                <h3 class="text-xl font-semibold">Follow Us</h3>
+                <div class="flex md:flex-col gap-6 md:items-start mt-2">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-discord"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-telegram"></i>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-xl font-semibold">Stay in the Loop</h3>
+                <p class="mt-2 text-sm">
+                    Subscribe for free consultation
+                </p>
+                <form action="" class="mt-4 flex text-(--text-primary)">
+                    <input type="email" placeholder="Your email address"
+                        class="w-full p-2 rounded-l-md focus:outline-none" />
+                    <button type="submit" class="bg-red-600 text-white px-4 rounded-r-md hover:bg-red-700">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="mt-8 border-t border-gray-700 pt-6 text-center text-sm">
+            <p>
+                &copy; 2026
+                <span class="text-red-500">Akibgoto</span>. All rights reserved
+            </p>
+        </div>
     </footer>
-
-
 </body>
 
 </html>

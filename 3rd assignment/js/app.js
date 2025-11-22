@@ -6,8 +6,15 @@ const themeChanger = document.querySelector(".theme-change-header");
 const themeChanger2 = document.querySelector(".theme-changer-side-nav");
 const aboutBtn = document.querySelector("#about");
 const aboutBtn2 = document.querySelector("#about-2");
-const aboutDeleteBtn = document.querySelector(".about-cross");
+const aboutBtn3 = document.querySelector("#about-3");
 const aboutME = document.querySelector("#about-me");
+const hero = document.querySelector("main");
+
+const homeBtn = document.querySelector("#home-btn");
+const serviceBtn = document.querySelector("#service-btn");
+const contactBtn = document.querySelector("#contact-btn");
+
+const aboutDeleteBtn = document.querySelector(".about-cross");
 
 hambergerMenu.addEventListener("click", function (e) {
   sideNav.classList.add("slide");
@@ -48,10 +55,24 @@ function openAbout(e) {
   // console.log("akib");
   aboutME.classList.add("active");
 }
+
+function closeSideNav() {
+  sideNav.classList.remove("slide");
+}
+
+homeBtn.addEventListener("click", closeSideNav);
+contactBtn.addEventListener("click", closeSideNav);
+serviceBtn.addEventListener("click", closeSideNav);
+
 aboutBtn.addEventListener("click", openAbout);
 aboutBtn2.addEventListener("click", openAbout);
 
+aboutBtn3.addEventListener("click", function () {
+  aboutME.classList.add("active");
+  sideNav.classList.remove("slide");
+});
+
 aboutDeleteBtn.addEventListener("click", function (e) {
-  console.log("first");
   aboutME.classList.remove("active");
+  // console.log("akib");
 });
