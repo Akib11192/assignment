@@ -5,6 +5,19 @@ body {
   height: 100%;
 }
 
+:root {
+  --bg-primary: #cfd7ea;
+  --bg-glass: rgba(255, 255, 255, 0.2);
+  --bg-top: rgb(255, 255, 255);
+  --text-primary: black;
+}
+.dark {
+  --bg-primary: #111111;
+  --bg-glass: rgba(0, 0, 0, 0.5);
+  --bg-top: rgb(54, 49, 49);
+  --text-primary: white;
+}
+
 .glass {
   position: relative;
   overflow: hidden;
@@ -54,4 +67,25 @@ header .side-nav {
 
 .slide {
   left: 0;
+}
+
+.about-me {
+  transform: scale(0%);
+  transition: all 0.5s ease;
+  top: 0;
+  left: 0;
+}
+.active {
+  display: block;
+  top: 0;
+  left: 0;
+  transform: scale(100%);
+}
+
+.about-me-detail li {
+  display: inline-block;
+  padding: 4px;
+  color: white;
+  border-radius: 8px;
+  border: 2px solid white;
 }

@@ -6,53 +6,168 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <script src="./js/app.js" defer></script>
     <title>Portfolio || akibgoto</title>
 </head>
 
 <body>
-
-    <header class="shadow-md ">
-
-        <div class="max-w-6xl p-5 m-auto flex flex-row justify-between items-center">
-            <div class="hamberger-menu h-7 w-8  flex flex-col justify-between block md:hidden ">
-                <div class="line line1 w-8 h-1.5 bg-black rounded-xl"></div>
-                <div class="line line2 w-8 h-1.5 bg-black rounded-xl"></div>
-                <div class="line line3 w-8 h-1.5 bg-black rounded-xl"></div>
-            </div>
-            <div class="">
-                <h2><span class="text-red-700 font-bold">a</span>kibgoto</h2>
-            </div>
-            <nav class="p-2 border-2 hidden md:block">
-                <a href="./index.html" class="border-2 p-1">home</a>
-                <a href="./about.html">about me</a>
-                <a href="./service.html">service</a>
-                <a href="./contact.html">contact</a>
-            </nav>
-            <div class="">
-                <div class="theme "> </div>
-                <div class=" glass">
-                    <img src="./images/logo.png" alt="" class="h-10 w-10">
+    <section class="fixed border p-2 bg-[#191919] m-10 rounded-2xl ">
+        <div class="absolute top-2 right-2 h-6 w-6 rounded-full bg-amber-300 flex justify-center items-center group">
+            <i class="fa-solid fa-xmark transition-all duration-300 group-hover:rotate-90"></i>
+        </div>
+        <div>
+            <div class="about">
+                <h2 class="uppercase text-red-500 text-3xl">about me</h2>
+                <p>I help business owners and busy web developers to design & develop creative websites that fits their
+                    vision and attracts the visitors to stay for ever. Technologies and tools that I use to create such
+                    awesome websites.</p>
+                <div class="skills">
+                    <p>$JavaScript </p>
                 </div>
             </div>
-        </div>
-        <div class="side-nav p-6 fixed top-0 -left-[70%] flex flex-col md:hidden h-full w-[70%] bg-amber-600 ">
-            <div class="flex flex-row justify-between items-center">
-                <div class="h-10 w-10"><img src="./images/logo.png" alt=""></div>
-                <div class="side-nav-close w-8 h-7 bg-blue-300">
-                    <div class="w-8 h-1.5 bg-black rounded-xl rotate-45"></div>
-                    <div class="w-8 h-1.5 bg-black rounded-xl -rotate-45"></div>
-                </div>
-            </div>
-            <div class="flex flex-col">
-                <a href="./index.html" class="">home</a>
-                <a href="./about.html">about me</a>
-                <a href="./service.html">service</a>
-                <a href="./contact.html">contact</a>
+            <div class="stack">
+
             </div>
         </div>
-    </header>
-    <main>service</main>
+        <div class="h-96 w-56"><img src="./images/glow-img.png" alt=""></div>
+    </section>
 </body>
 
+
 </html>
+
+
+
+<section id="about-me" class="about-me absolute bg-[#111111] m-5 rounded-2xl z-99 border-2">
+    <div
+        class="about-cross relative top-1 right-0 h-6 w-6 rounded-full bg-amber-300 flex justify-center items-center group">
+        <i class="fa-solid fa-xmark transition-all duration-300 group-hover:rotate-90"></i>
+    </div>
+    <div class="flex flex-col md:flex-row items-center justify-between border border-white">
+
+        <div class="about">
+            <h2 class="uppercase text-red-500 text-3xl">about me</h2>
+            <p class="text-white">I help business owners and busy web developers to design & develop
+                creative
+                websites
+                that fits
+                their
+                vision and attracts the visitors to stay for ever. Technologies and tools that I
+                use
+                to create
+                such
+                awesome websites.</p>
+            <div class="skills">
+                <ul class="about-me-detail flex flex-wrap   ">
+                    <li>#javascript</li>
+                    <li>#react.js</li>
+                    <li>#redux</li>
+                    <li>#node.js</li>
+                    <li>#express.js</li>
+                    <li>#mongoDB</li>
+                    <li>#mongoose</li>
+                    <li>#cloudinary</li>
+                    <li>#ejs</li>
+                    <li>#html</li>
+                    <li>#css</li>
+                    <li>#sass</li>
+                    <li>#bootstrap</li>
+                    <li>#tailwind</li>
+                    <li>#git</li>
+                    <li>#github</li>
+                    <li>#aws</li>
+                    <li>#terminal</li>
+                    <li>#adobeXD</li>
+                    <li>#figma</li>
+                </ul>
+            </div>
+            <div class="stack flex flex-row gap-7 border justify-center items-center md:items-start">
+                <div class="relative ">
+                    <img src="./images/mongodb.svg" alt="">
+                    <p class="text-6xl text-[#47a248]">M</p>
+                </div>
+                <div class="relative ">
+                    <img src="./images/express.svg" alt="">
+                    <p class="text-6xl text-[#ffffff]">E</p>
+                </div>
+                <div class="relative ">
+                    <img src="./images/react.svg" alt="">
+                    <p class="text-6xl text-[#61dafb]">R</p>
+                </div>
+                <div class="relative ">
+                    <img src="./images/node.svg" alt="">
+                    <p class="text-6xl text-[#8cc84b]">N</p>
+                </div>
+            </div>
+        </div>
+        <div class="lg:w-1/2 hidden lg:block border border-white"><img src="./images/coder.svg" alt=""></div>
+    </div>
+</section>
+
+
+
+<div
+    class="hero-social  text-(--text-primary) rounded-2xl p-2 font-bold flex flex-row items-center justify-center md:flex-col gap-10 shadow-xl">
+    <a href="#" class="relative group flex items-center gap-2">
+        <i
+            class="fa-brands fa-facebook group-hover:scale-105 text-2xl group-hover:text-blue-400 transition-all duration-300"></i>
+        <p
+            class="absolute -left-5 -top-10 md:-left-24 md:-top-2 p-2 bg-blue-400 text-white rounded-2xl hidden group-hover:block transition-all duration-300">
+            facebook</p>
+    </a>
+    <a href="#" class="relative group flex items-center gap-2">
+        <i
+            class="fa-brands fa-instagram group-hover:scale-105 text-2xl group-hover:text-red-400 transition-all duration-300"></i>
+        <p
+            class="absolute -left-5 -top-10 md:-left-25.5 md:-top-2 p-2 bg-red-400 text-white rounded-2xl hidden group-hover:block transition-all duration-300">
+            instagram</p>
+    </a>
+    <a href="#" class="relative group flex items-center gap-2">
+        <i
+            class="fa-brands fa-whatsapp group-hover:scale-105 text-2xl group-hover:text-green-500 transition-all duration-300"></i>
+        <p
+            class="absolute -left-5 -top-10 md:-left-25.5 md:-top-2 p-2 bg-green-500 text-white rounded-2xl hidden group-hover:block transition-all duration-300">
+            whatsapp</p>
+    </a>
+    <a href="#" class="relative group flex items-center gap-2">
+        <i
+            class="fa-brands fa-discord group-hover:scale-105 text-2xl group-hover:text-blue-500 transition-all duration-300"></i>
+        <p
+            class="absolute -left-5 -top-10 md:-left-20 md:-top-2 p-2 bg-blue-500 text-white rounded-2xl hidden group-hover:block transition-all duration-300">
+            discord</p>
+    </a>
+    <a href="#" class="relative group flex items-center gap-2">
+        <i
+            class="fa-brands fa-linkedin group-hover:scale-105 text-2xl group-hover:text-blue-500 transition-all duration-300"></i>
+        <p
+            class="absolute -left-5 -top-10 md:-left-22 md:-top-2 p-2 bg-blue-500 text-white rounded-2xl hidden group-hover:block transition-all duration-300">
+            linkedin</p>
+    </a>
+</div>
+
+
+
+
+<main id="home" class="hero relative bg-(--bg-primary) min-h-full pt-20 border-4 flex justify-between items-center ">
+    <div class="max-w-6xl m-auto flex flex-col-reverse md:flex-row items-center justify-between pl-5 pr-5 mt-10 gap-7">
+        <div class="hero-detailes  flex flex-col  border gap-8">
+            <h1 class="text-(--text-primary) md:text-4xl text-3xl uppercase"><span>mohammed</span> maynul hasan akib
+            </h1>
+            <h2 class="text-(--text-primary) font-bold  ">professional <span class="uppercase">mern</span> stack
+                developer</h2>
+            <div class="border">
+                <button id="about-2"
+                    class="relative w-30 h-10 bg-linear-to-r from-red-600 to-red-400 text-(--text-primary) rounded-2xl"><span
+                        class="uppercase text-xl">about me
+                    </span><i class="fa-solid fa-right-long absolute "></i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <div class="border fixed  m-auto"><img src="./images/name-logo-black.svg" alt=""
+            class="lg:w-[500px] lg:h-[500px] w-[300px] h-[300px]">
+    </div>
+
+</main>

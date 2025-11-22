@@ -6,59 +6,146 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <script src="./js/app.js" defer></script>
     <title>Portfolio || akibgoto</title>
 </head>
 
-<body>
-
-    <header class="shadow-md ">
-
-        <div class="max-w-6xl p-5 m-auto flex flex-row justify-between items-center">
-            <div class="hamberger-menu h-7 w-8  flex flex-col justify-between block md:hidden ">
-                <div class="line line1 w-8 h-1.5 bg-black rounded-xl"></div>
-                <div class="line line2 w-8 h-1.5 bg-black rounded-xl"></div>
-                <div class="line line3 w-8 h-1.5 bg-black rounded-xl"></div>
+<body class="">
+    <header class="fixed top-3 md:m-auto min-w-full z-50">
+        <div class=" p-3 max-w-6xl lg:m-auto lg:rounded-4xl flex flex-row justify-between items-center shadow-2xl">
+            <div class="hamberger-menu h-7 w-8  flex flex-col justify-between md:hidden ">
+                <div class="line line1 w-8 h-1.5 bg-(--text-primary) rounded-xl"></div>
+                <div class="line line2 w-8 h-1.5 bg-(--text-primary) rounded-xl"></div>
+                <div class="line line3 w-8 h-1.5 bg-(--text-primary) rounded-xl"></div>
             </div>
             <div class="">
-                <h2><span class="text-red-700 font-bold">a</span>kibgoto</h2>
+                <h2 class="text-2xl font-bold text-red-700 ">a<span class="text-(--text-primary)">kibgoto</span>
+                </h2>
             </div>
-            <nav class="p-2 border-2 hidden md:block">
-                <a href="./index.html" class="border-2 p-1">home</a>
-                <a href="./about.html">about me</a>
-                <a href="./service.html">service</a>
-                <a href="./contact.html">contact</a>
+            <nav class="p-2 hidden md:block text-(--text-primary)">
+                <a href="#home"
+                    class="p-1 uppercase inline-block font-bold transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-red-200">home</a>
+                <a href="#about" id="about"
+                    class="p-1 uppercase inline-block font-bold transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-red-200">about</a>
+                <a href="#service"
+                    class="p-1 uppercase inline-block font-bold transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-red-200">service</a>
+                <a href="#contact"
+                    class="p-1 uppercase inline-block font-bold transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-red-200">contact</a>
             </nav>
-            <div class="">
-                <div class="theme "> </div>
+            <div class="flex flex-row  justify-between items-center gap-7">
+                <div
+                    class="theme-change-header text-[12px] text-(--text-primary) flex-row justify-between items-center gap-3 hidden md:flex cursor-pointer p-1">
+                </div>
                 <div class=" glass">
                     <img src="./images/logo.png" alt="" class="h-10 w-10">
                 </div>
             </div>
         </div>
-        <div class="side-nav p-6 fixed top-0 -left-[70%] flex flex-col md:hidden h-full w-[70%] bg-amber-600 ">
+        <div
+            class="side-nav p-6 fixed top-0 -left-[70%] flex flex-col md:hidden h-full w-[70%] bg-(--bg-glass) backdrop-blur-lg shadow-2xl z-50 ">
             <div class="flex flex-row justify-between items-center">
                 <div class="h-10 w-10"><img src="./images/logo.png" alt=""></div>
                 <div class="side-nav-close relative w-7 h-7">
                     <div
-                        class="absolute top-1/2 left-1/2 w-8 h-1.5 bg-black rounded-xl rotate-45 -translate-x-1/2 -translate-y-1/2">
+                        class="absolute top-1/2 left-1/2 w-8 h-1.5 bg-(--text-primary) rounded-xl rotate-45 -translate-x-1/2 -translate-y-1/2">
                     </div>
                     <div
-                        class="absolute top-1/2 left-1/2 w-8 h-1.5 bg-black rounded-xl -rotate-45 -translate-x-1/2 -translate-y-1/2">
+                        class="absolute top-1/2 left-1/2 w-8 h-1.5 bg-(--text-primary) rounded-xl -rotate-45 -translate-x-1/2 -translate-y-1/2">
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col">
-                <a href="./index.html" class="">home</a>
-                <a href="./about.html">about me</a>
-                <a href="./service.html">service</a>
-                <a href="./contact.html">contact</a>
+            <div class="flex flex-col justify-between h-2/3 mt-4">
+                <nav class="flex flex-col text-(--text-primary)">
+                    <a href="#home" class="p-1 uppercase border-b-2 hover:scale-105">home</a>
+                    <a href="#about" class="p-1 uppercase border-b-2 hover:scale-105">about me</a>
+                    <a href="#service" class="p-1 uppercase border-b-2 hover:scale-105">service</a>
+                    <a href="#contact" class="p-1 uppercase border-b-2 hover:scale-105">contact</a>
+                </nav>
+                <div class="theme-changer-side-nav text-(--text-primary) flex justify-between items-center">
+                </div>
             </div>
         </div>
     </header>
 
+    <main class="hero relative h-full w-full ">
+        <div class="absolute h-full w-full  flex items-center justify-center bg-(--bg-primary) "><img
+                src="./images/name-logo-black.svg" alt=""
+                class="w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px]">
+        </div>
 
-    <main>home</main>
+
+
+        <div class="relative flex flex-row justify-between items-center max-w-6xl h-full  m-auto p-4 ">
+            <div class="flex flex-col gap-10">
+                <h1 class="md:text-5xl text-4xl text-(--text-primary) uppercase"><span
+                        class="text-red-500">mohammed</span> akib
+                </h1>
+                <p>
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center gap-4">
+                    <div><span class="text-green-800 text-4xl uppercase">m</span>
+                        <span class="text-white text-4xl uppercase">e</span>
+                        <span class="text-cyan-500 text-4xl uppercase">r</span>
+                        <span class="text-green-500 text-4xl uppercase">n</span>
+                    </div>
+                    <b class="md:text-2xl text-xl text-(--text-primary)">stack developer</b>
+                </div>
+                </p>
+                <div>
+                    <div
+                        class=" h-10 w-35 rounded-2xl  flex flex-row gap-6 uppercase font-bold justify-center items-center text-(--text-primary) bg-gradient-to-r from-red-500 to-pink-500 hover:scale-105 transition-all duration-200">
+                        about
+                        me
+                        <i class="fa-solid fa-right-long  "></i>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="hero-social  text-(--text-primary) rounded-2xl p-2 font-bold flex items-center justify-center flex-col gap-10 shadow-xl ">
+                <a href="#" class="relative group flex items-center gap-2">
+                    <i
+                        class="fa-brands fa-facebook group-hover:scale-105 text-2xl group-hover:text-blue-400 transition-all duration-300"></i>
+                    <p
+                        class="absolute -left-24 -top-2 p-2 bg-blue-400 text-white rounded-2xl hidden group-hover:block transition-all duration-300">
+                        facebook</p>
+                </a>
+                <a href="#" class="relative group flex items-center gap-2">
+                    <i
+                        class="fa-brands fa-instagram group-hover:scale-105 text-2xl group-hover:text-red-400 transition-all duration-300"></i>
+                    <p
+                        class="absolute -left-25.5 -top-2 p-2 bg-red-400 text-white rounded-2xl hidden group-hover:block transition-all duration-300">
+                        instagram</p>
+                </a>
+                <a href="#" class="relative group flex items-center gap-2">
+                    <i
+                        class="fa-brands fa-whatsapp group-hover:scale-105 text-2xl group-hover:text-green-500 transition-all duration-300"></i>
+                    <p
+                        class="absolute -left-25.5 md:-top-2 p-2 bg-green-500 text-white rounded-2xl hidden group-hover:block transition-all duration-300">
+                        whatsapp</p>
+                </a>
+                <a href="#" class="relative group flex items-center gap-2">
+                    <i
+                        class="fa-brands fa-discord group-hover:scale-105 text-2xl group-hover:text-blue-500 transition-all duration-300"></i>
+                    <p
+                        class="absolute -left-20 -top-2 p-2 bg-blue-500 text-white rounded-2xl hidden group-hover:block transition-all duration-300">
+                        discord</p>
+                </a>
+                <a href="#" class="relative group flex items-center gap-2">
+                    <i
+                        class="fa-brands fa-linkedin group-hover:scale-105 text-2xl group-hover:text-blue-500 transition-all duration-300"></i>
+                    <p
+                        class="absolute -left-22 -top-2 p-2 bg-blue-500 text-white rounded-2xl hidden group-hover:block transition-all duration-300">
+                        linkedin</p>
+                </a>
+            </div>
+        </div>
+    </main>
+
+
+
+    </footer>
+
+
 </body>
 
 </html>
