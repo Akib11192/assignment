@@ -29,11 +29,11 @@ function updateUI() {
 
   if (isDark) {
     body.classList.add("dark");
-    themeChanger.innerHTML = `<p>Light Mode</p><i class="fa-solid fa-sun"></i>`;
+    themeChanger.innerHTML = `<p class="lg:block hidden">Light Mode</p><i class="fa-solid fa-sun"></i>`;
     themeChanger2.innerHTML = `<p>Light Mode</p><i class="fa-solid fa-sun"></i>`;
   } else {
     body.classList.remove("dark");
-    themeChanger.innerHTML = `<p>Dark Mode</p><i class="fa-solid fa-moon"></i>`;
+    themeChanger.innerHTML = `<p class="lg:block hidden">Dark Mode</p><i class="fa-solid fa-moon"></i>`;
     themeChanger2.innerHTML = `<p>Dark Mode</p><i class="fa-solid fa-moon"></i>`;
   }
 }

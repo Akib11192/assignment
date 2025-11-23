@@ -6,7 +6,7 @@ body {
 }
 
 :root {
-  --bg-primary: #cfd7ea;
+  --bg-primary: #c7c7c7;
   --bg-glass: rgba(255, 255, 255, 0.2);
   --bg-top: rgb(255, 255, 255);
   --text-primary: black;
