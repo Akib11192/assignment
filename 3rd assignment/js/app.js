@@ -9,7 +9,6 @@ const aboutBtn2 = document.querySelector("#about-2");
 const aboutBtn3 = document.querySelector("#about-3");
 const aboutME = document.querySelector("#about-me");
 const hero = document.querySelector("main");
-
 const homeBtn = document.querySelector("#home-btn");
 const serviceBtn = document.querySelector("#service-btn");
 const contactBtn = document.querySelector("#contact-btn");
@@ -75,4 +74,21 @@ aboutBtn3.addEventListener("click", function () {
 aboutDeleteBtn.addEventListener("click", function (e) {
   aboutME.classList.remove("active");
   // console.log("akib");
+});
+
+body.addEventListener("mousemove", function (e) {
+  console.log("akib");
+  const xoffset = e.offsetX;
+  const yoffset = e.offsetY;
+  const number = Math.floor(Math.random() * 100);
+  const span = document.createElement("span");
+  span.classList.add("span-2");
+  span.style.left = xoffset + "px";
+  span.style.top = yoffset + "px";
+  span.style.height = number + "px";
+  span.style.width = number + "px";
+  body.append(span);
+  setTimeout(() => {
+    span.remove();
+  }, 3000);
 });

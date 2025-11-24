@@ -3,6 +3,7 @@
 html,
 body {
   height: 100%;
+  /* overflow-x: hidden; */
 }
 
 :root {
@@ -85,4 +86,28 @@ header .side-nav {
   border-radius: 8px;
   border: 2px solid var(--text-primary);
   font-size: 12px;
+}
+
+.span-2 {
+  /* display: inline-block; */
+  height: 100px;
+  width: 100px;
+  position: fixed;
+  background: url(../images/name-logo-black.svg);
+  background-size: cover;
+  left: 50%;
+  top: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: animate 10s linear;
+  z-index: 99999;
+}
+
+@keyframes animate {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    transform: translate(-50%, -5000%);
+  }
 }
