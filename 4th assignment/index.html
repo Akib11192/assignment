@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="./js/app.js" defer></script>
+    <title>Recipes || akibgoto</title>
+</head>
+
+<body class="scroll-smooth">
+    <header id="home" class="shadow-gray-400 shadow-2xl">
+
+        <div class="max-w-6xl m-auto p-3 flex items-center justify-center">
+            <img src="./images/logo.png" alt="" class=" h-10">
+        </div>
+    </header>
+
+    <main class="relative">
+
+
+
+        <div class="benner">
+            <h1 class="text-4xl font-bold text-amber-50 text-center">Search your favorite recipe</h1>
+            <p class="text-amber-50 text-center">A handful of simple ingredients typify the fresh , vibrant flavors of
+                Greek cooking</p>
+        </div>
+
+
+
+        <div class="search-box flex flex-row items-center justify-center mt-4 ">
+            <input type="text" placeholder="search..." id="search-query"
+                class="border border-blue-300 outline-none w-2/4 p-2.5 rounded-l-xl">
+            <i id="search-query-btn"
+                class="fa-solid fa-magnifying-glass bg-amber-300 text-white p-[15px] rounded-r-xl"></i>
+        </div>
+
+        <h3 class="text-4xl text-center my-4">Latest Recipes</h3>
+
+
+        <div id="loader" class=" flex justify-center items-center h-64">
+            <div class="animate-spin rounded-full h-12 w-12 border-4 border-amber-400 border-t-transparent"></div>
+        </div>
+
+
+        <div class="recipe-container max-w-6xl m-auto">
+
+            <div id="all-recipes"
+                class="all-recipes p-10 w-full flex justify-center md:justify-between gap-5 flex-wrap">
+            </div>
+
+
+        </div>
+        <a href="#home" id="go-to-top"><i
+                class="fa-solid fa-arrow-up p-3 bg-amber-300 rounded-sm fixed bottom-8 right-4">
+            </i></a>
+
+    </main>
+
+
+    <div id="recipe-modal" class="fixed inset-0 w-full bg-black/60 hidden items-center justify-center z-50">
+        <div class="bg-white w-10/12 h-fit md:h-10/12  rounded-2xl p-5 relative">
+            <div id="close-modal"
+                class="about-cross absolute top-2 right-2 h-6 w-6 rounded-full bg-amber-400 text-black flex justify-center items-center group">
+                <i class="fa-solid fa-xmark transition-all duration-300 group-hover:rotate-90"></i>
+            </div>
+
+            <img id="modal-img" class="w-full h-52 object-cover rounded-xl mb-4" />
+            <h2 id="modal-title" class="text-2xl font-bold mb-2"></h2>
+            <p id="modal-instructions" class="text-sm max-h-60 overflow-y-auto pr-2 "></p>
+        </div>
+    </div>
+
+    <footer class="bg-gray-800">
+        <div class="max-w-6xl m-auto p-3 flex items-center justify-between">
+            <h5 class="text-[10px] md:text-[16px]">Copyright © 2025. All rights reserved</h5>
+            <div class="flex flex-row gap-2 md:items-start mt-2">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-discord"></i>
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

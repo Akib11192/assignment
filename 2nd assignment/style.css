@@ -487,9 +487,9 @@ body {
           font-size: 16px;
           margin: 20px 10px;
         }
-        button{
-          padding:15px 25px;
-          display:flex;
+        button {
+          padding: 15px 25px;
+          display: flex;
           flex-direction: row;
           border: none;
           outline: none;
@@ -522,9 +522,9 @@ body {
           font-size: 16px;
           margin: 20px 10px;
         }
-        button{
-          padding:15px 25px;
-          display:flex;
+        button {
+          padding: 15px 25px;
+          display: flex;
           flex-direction: row;
           border: none;
           outline: none;
