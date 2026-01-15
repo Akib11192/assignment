@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import DataContext from "../contexts/DataContext.js";
+import dataContext from "../contexts/dataContext.js";
 
 const DataProvider = ({ children }) => {
   const [contacts, setContacts] = useState([]);
@@ -11,7 +11,7 @@ const DataProvider = ({ children }) => {
   };
 
   return (
-    <DataContext.Provider
+    <dataContext.Provider
       value={{
         contacts,
         setContacts,
@@ -19,7 +19,7 @@ const DataProvider = ({ children }) => {
       }}
     >
       {children}
-    </DataContext.Provider>
+    </dataContext.Provider>
   );
 };
 
