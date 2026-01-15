@@ -1,17 +1,22 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router";
 import { DataContext } from "../contexts/DataContext";
 import Modal from "../components/Modal";
 
 const Contacts = () => {
-  const [isId, setIsId] = useState("");
-  const { contacts, getData } = useContext(DataContext);
-
+  const {
+    contacts,
+    getData,
+    setEditId,
+    showId,
+    setShowId,
+    deleteId,
+    setDeleteId,
+  } = useContext(DataContext);
   useEffect(() => {
     getData();
   }, []);
 
-  console.log(contacts);
   return (
     <div className="max-w-6xl m-auto mt-6 rounded overflow-hidden bg-white">
       <div className="flex flex-row justify-between items-center bg-blue-950 py-3 px-2 gap-5">
@@ -104,26 +109,34 @@ const Contacts = () => {
                     <td className="px-4 py-3">
                       <div className="flex justify-center gap-2">
                         {/* Show */}
-                        <button
+                        <Link
+                          to="/show"
                           title="Show"
                           className="flex h-8 w-8 items-center justify-center rounded-full border border-blue-400 text-blue-500 hover:bg-blue-500 hover:text-white transition"
+                          onClick={() => {
+                            setShowId(contact.id);
+                          }}
                         >
                           <i className="fa fa-eye text-xs"></i>
-                        </button>
+                        </Link>
 
                         {/* Edit */}
-                        <button
+                        <Link
+                          to="/form"
                           title="Edit"
                           className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-gray-600 hover:text-white transition"
+                          onClick={() => {
+                            setEditId(contact.id);
+                          }}
                         >
                           <i className="fa fa-edit text-xs"></i>
-                        </button>
+                        </Link>
 
                         {/* Delete */}
                         <button
                           title="Delete"
                           className="flex h-8 w-8 items-center justify-center rounded-full border border-red-400 text-red-500 hover:bg-red-500 hover:text-white transition"
-                          onClick={() => setIsId(contact.id)}
+                          onClick={() => setDeleteId(contact.id)}
                         >
                           <i className="fa fa-times text-xs"></i>
                         </button>
@@ -136,7 +149,7 @@ const Contacts = () => {
           </div>
         )}
       </div>
-      {isId ? <Modal isId={isId} setIsId={setIsId} /> : ""}
+      {deleteId ? <Modal deleteId={deleteId} setDeleteId={setDeleteId} /> : ""}
     </div>
   );
 };

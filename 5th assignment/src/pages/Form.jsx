@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import Input from "../components/Input";
 import useSubmitHandler from "../hooks/useSubmitHandler";
+import { DataContext } from "../contexts/DataContext";
 
 const Form = () => {
   const { submitHandler } = useSubmitHandler();
+  const navigation = useNavigate();
+  const { contacts, editId, setEditId } = useContext(DataContext);
+
   const [contact, setContact] = useState({
     first_name: "",
     last_name: "",
@@ -12,7 +16,7 @@ const Form = () => {
     phone: "",
     address: "",
   });
-  const navigation = useNavigate();
+
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
     setContact((prev) => ({ ...prev, [name]: value }));
@@ -21,9 +25,14 @@ const Form = () => {
   const onCencelHandler = (e) => {
     navigation("/");
   };
-
+  useEffect(() => {
+    if (editId) {
+      const editContact = contacts.filter((contact) => contact.id === editId);
+      setContact(...editContact);
+    }
+  }, []);
   return (
-    <div className=" max-w-4xl mt-5 m-auto rounded">
+    <div className=" max-w-4xl mt-5 m-auto rounded overflow-hidden">
       <div className="p-4 bg-blue-950 flex flex-row justify-between items-center">
         <h2 className=" font-bold text-2xl text-white">Add New Contact</h2>
         <Link
@@ -38,7 +47,7 @@ const Form = () => {
         className="bg-white py-5 flex flex-col gap-5"
         onSubmit={(e) => {
           e.preventDefault();
-          submitHandler(contact, setContact);
+          submitHandler(contact, setContact, editId, setEditId);
           navigation("/");
         }}
       >
@@ -68,7 +77,7 @@ const Form = () => {
         />
         <Input
           id="phone"
-          type="text"
+          type="tel"
           name="phone"
           label="Phone"
           value={contact.phone}
@@ -91,7 +100,7 @@ const Form = () => {
         <div className="flex flex-row gap-2 pl-10">
           <input
             type="submit"
-            value="submit"
+            value={editId ? "Save" : "Submit"}
             className="bg-blue-500 p-2 text-white rounded hover:bg-blue-600 transition"
           />
           <button

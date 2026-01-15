@@ -1,7 +1,7 @@
 import { createPortal } from "react-dom";
 import useDeleleHandler from "../hooks/useDeleteHandler";
 
-const Modal = ({ isId, setIsId }) => {
+const Modal = ({ deleteId, setDeleteId }) => {
   const { deleteHandler } = useDeleleHandler();
   return createPortal(
     <div className="fixed inset-0 w-full h-full bg-black/70 flex justify-center items-center">
@@ -14,8 +14,8 @@ const Modal = ({ isId, setIsId }) => {
           <button
             className="bg-red-500 py-2 px-3 rounded"
             onClick={() => {
-              deleteHandler(isId);
-              setIsId("");
+              deleteHandler(deleteId);
+              setDeleteId("");
             }}
           >
             confirn
@@ -23,7 +23,7 @@ const Modal = ({ isId, setIsId }) => {
           <button
             className="bg-blue-500 py-2 px-3 rounded"
             onClick={() => {
-              setIsId("");
+              setDeleteId("");
             }}
           >
             cencel
