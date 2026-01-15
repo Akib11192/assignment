@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { DataContext } from "../contexts/dataContext.js";
+import DataContext from "../contexts/DataContext.js";
 
 const DataProvider = ({ children }) => {
   const [contacts, setContacts] = useState([]);
