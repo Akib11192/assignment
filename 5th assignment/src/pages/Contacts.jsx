@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router";
-import { DataContext } from "../contexts/dataContext";
+import { DataContext } from "../contexts/DataContext";
 import Modal from "../components/Modal";
 
 const Contacts = () => {
