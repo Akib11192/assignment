@@ -8,7 +8,7 @@ const Form = () => {
   const { id } = useParams();
   const { submitHandler } = useSubmitHandler();
   const navigation = useNavigate();
-  const { contacts, editId, setEditId } = useContext(DataContext);
+  const { contacts, editId, setEditId, getData } = useContext(DataContext);
 
   const [contact, setContact] = useState({
     first_name: "",
@@ -56,6 +56,7 @@ const Form = () => {
           e.preventDefault();
           submitHandler(contact, setContact, id);
           navigation("/");
+          getData();
         }}
       >
         <Input
