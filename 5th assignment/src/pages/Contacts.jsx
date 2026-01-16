@@ -39,7 +39,7 @@ const Contacts = () => {
 
   useEffect(() => {
     getData();
-  }, [contacts]);
+  }, [contacts.length]);
 
   return (
     <div className="max-w-6xl m-auto mt-6 [@media(min-width:1050px)]:rounded overflow-hidden bg-white">
