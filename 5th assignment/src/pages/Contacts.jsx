@@ -1,44 +1,85 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router";
 import { DataContext } from "../contexts/DataContext";
 import Modal from "../components/Modal";
 
 const Contacts = () => {
-  const {
-    contacts,
-    getData,
-    setEditId,
-    showId,
-    setShowId,
-    deleteId,
-    setDeleteId,
-  } = useContext(DataContext);
+  const { contacts, getData, deleteId, setDeleteId } = useContext(DataContext);
+  const [appliedSearch, setAppliedSearch] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState("default");
+  // console.log(sortBy);
+  const searchedData = contacts.filter((contact) => {
+    const searchLower = appliedSearch.toLowerCase();
+    return (
+      contact.first_name.toLowerCase().includes(searchLower) ||
+      contact.last_name.toLowerCase().includes(searchLower) ||
+      contact.email.toLowerCase().includes(searchLower) ||
+      contact.phone.includes(searchLower)
+    );
+  });
+
+  const finalDisplayContacts = [...searchedData].sort((a, b) => {
+    if (sortBy === "first_name") {
+      return a.first_name.localeCompare(b.first_name);
+    }
+    if (sortBy === "last_name") {
+      return a.last_name.localeCompare(b.last_name);
+    }
+    if (sortBy === "old_on_first") {
+      return Number(a.id) - Number(b.id);
+    }
+    return Number(b.id) - Number(a.id);
+  });
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    setAppliedSearch(searchTerm);
+  };
+
   useEffect(() => {
     getData();
   }, []);
 
   return (
-    <div className="max-w-6xl m-auto mt-6 rounded overflow-hidden bg-white">
-      <div className="flex flex-row justify-between items-center bg-blue-950 py-3 px-2 gap-5">
+    <div className="max-w-6xl m-auto mt-6 [@media(min-width:1050px)]:rounded overflow-hidden bg-white">
+      <div className="flex flex-col md:flex-row justify-between items-center bg-blue-950 py-3 px-2 gap-5">
         <h2 className="font-bold text-3xl text-white">All Contacts</h2>
-        <form action="" className="flex flex-row w-2/3">
+        <form className="flex flex-row w-2/3" onSubmit={handleSearchSubmit}>
           <input
             type="text"
-            placeholder="Search Contact"
-            className="w-full  bg-white text-gray-700 outline-none  px-3 py-2 rounded-l-md"
+            placeholder="Search by name, email or phone..."
+            className="w-full bg-white text-gray-700 outline-none px-3 py-2 rounded-l-md"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            required
           />
-          <input
-            type="submit"
-            value="Search"
-            className="px-4 py-2 bg-green-500 rounded-r-md text-white font-bold"
-          />
+          {!appliedSearch ? (
+            <button
+              type="submit"
+              className="px-4 py-2 bg-green-500 rounded-r-md text-white font-bold hover:bg-green-600 transition"
+            >
+              Search
+            </button>
+          ) : (
+            <button
+              type="submit"
+              className="px-4 py-2 bg-green-500 rounded-r-md text-white font-bold hover:bg-green-600 transition"
+              onClick={() => {
+                setSearchTerm("");
+                setAppliedSearch("");
+              }}
+            >
+              Clear
+            </button>
+          )}
         </form>
         <Link
           to="/form"
-          className="flex flex-row items-center gap-1.5 p-2 bg-green-500 rounded text-white font-bold"
+          className="flex flex-row items-center gap-1.5 py-2.5 px-2  bg-green-500 rounded text-white font-bold"
         >
           <i className="fa-slab fa-regular fa-plus"></i>
-          <span className="hidden lg:block">Add new</span>
+          <span className="text-sm line-clamp-1">Add new</span>
         </Link>
       </div>
       <div
@@ -50,13 +91,13 @@ const Contacts = () => {
           <p className="">Fillter</p>
         </div>
         <select
-          name=""
-          id=""
-          className="p-2 bg-white border-2 border-green-500"
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value)}
+          className="p-2 bg-white border-2 border-green-500 rounded outline-none"
         >
-          <option value="default">Default</option>
-          <option value="first_name">First Name ( A - Z )</option>
-          <option value="last_name">Last Name ( A - Z )</option>
+          <option value="default">Default (Recent)</option>
+          <option value="first_name">First Name (A - Z)</option>
+          <option value="last_name">Last Name (A - Z)</option>
           <option value="old_on_first">Old on First</option>
         </select>
       </div>
@@ -91,59 +132,73 @@ const Contacts = () => {
               </thead>
 
               <tbody className="divide-y divide-gray-200 bg-white">
-                {contacts.map((contact, index) => (
-                  <tr
-                    key={contact.id}
-                    className="hover:bg-gray-50 transition-colors"
-                  >
-                    <td className="px-4 py-3 text-gray-700">{index + 1}</td>
-                    <td className="px-4 py-3 text-gray-700">
-                      {contact.first_name}
-                    </td>
-                    <td className="px-4 py-3 text-gray-700">
-                      {contact.last_name}
-                    </td>
-                    <td className="px-4 py-3 text-gray-600">{contact.email}</td>
-                    <td className="px-4 py-3 text-gray-600">{contact.phone}</td>
-
-                    <td className="px-4 py-3">
-                      <div className="flex justify-center gap-2">
-                        {/* Show */}
-                        <Link
-                          to="/show"
-                          title="Show"
-                          className="flex h-8 w-8 items-center justify-center rounded-full border border-blue-400 text-blue-500 hover:bg-blue-500 hover:text-white transition"
-                          onClick={() => {
-                            setShowId(contact.id);
-                          }}
-                        >
-                          <i className="fa fa-eye text-xs"></i>
-                        </Link>
-
-                        {/* Edit */}
-                        <Link
-                          to="/form"
-                          title="Edit"
-                          className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-gray-600 hover:text-white transition"
-                          onClick={() => {
-                            setEditId(contact.id);
-                          }}
-                        >
-                          <i className="fa fa-edit text-xs"></i>
-                        </Link>
-
-                        {/* Delete */}
-                        <button
-                          title="Delete"
-                          className="flex h-8 w-8 items-center justify-center rounded-full border border-red-400 text-red-500 hover:bg-red-500 hover:text-white transition"
-                          onClick={() => setDeleteId(contact.id)}
-                        >
-                          <i className="fa fa-times text-xs"></i>
-                        </button>
-                      </div>
+                {finalDisplayContacts.length === 0 ? (
+                  <tr>
+                    <td
+                      colSpan="6"
+                      className="text-center py-20 text-gray-400 font-medium"
+                    >
+                      {searchTerm
+                        ? `No results found for "${searchTerm}"`
+                        : "No contacts available."}
                     </td>
                   </tr>
-                ))}
+                ) : (
+                  finalDisplayContacts.map((contact, index) => (
+                    <tr
+                      key={contact.id}
+                      className="hover:bg-gray-50 transition-colors"
+                    >
+                      <td className="px-4 py-3 text-gray-700">{index + 1}</td>
+                      <td className="px-4 py-3 text-gray-700">
+                        {contact.first_name}
+                      </td>
+                      <td className="px-4 py-3 text-gray-700">
+                        {contact.last_name}
+                      </td>
+                      <td className="px-4 py-3 text-gray-600">
+                        {contact.email}
+                      </td>
+                      <td className="px-4 py-3 text-gray-600">
+                        {contact.phone}
+                      </td>
+
+                      <td className="px-4 py-3">
+                        <div className="flex justify-center gap-2">
+                          <Link
+                            to={`/show/${contact.id}`}
+                            title="Show"
+                            className="flex h-8 w-8 items-center justify-center rounded-full border border-blue-400 text-blue-500 hover:bg-blue-500 hover:text-white transition"
+                            // onClick={() => {
+                            //   setShowId(contact.id);
+                            // }}
+                          >
+                            <i className="fa fa-eye text-xs"></i>
+                          </Link>
+
+                          <Link
+                            to={`/edit/${contact.id}`}
+                            title="Edit"
+                            className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-400 text-gray-600 hover:bg-gray-600 hover:text-white transition"
+                            // onClick={() => {
+                            //   setEditId(contact.id);
+                            // }}
+                          >
+                            <i className="fa fa-edit text-xs"></i>
+                          </Link>
+
+                          <button
+                            title="Delete"
+                            className="flex h-8 w-8 items-center justify-center rounded-full border border-red-400 text-red-500 hover:bg-red-500 hover:text-white transition"
+                            onClick={() => setDeleteId(contact.id)}
+                          >
+                            <i className="fa fa-times text-xs"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                )}
               </tbody>
             </table>
           </div>

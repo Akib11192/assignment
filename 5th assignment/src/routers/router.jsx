@@ -18,8 +18,12 @@ const router = createBrowserRouter([
         element: <Form />,
       },
       {
-        path: "/show",
+        path: "/show/:id",
         element: <Show />,
+      },
+      {
+        path: "/edit/:id",
+        element: <Form />,
       },
     ],
   },

@@ -1,14 +1,14 @@
 const useSubmitHandler = () => {
-  const submitHandler = async (contact, setContact, editId, setEditId) => {
-    if (editId) {
-      await fetch(`http://localhost:3000/contacts/${editId}`, {
+  const submitHandler = async (contact, setContact, id) => {
+    if (id) {
+      await fetch(`http://localhost:3000/contacts/${id}`, {
         method: "PATCH",
         body: JSON.stringify({ ...contact }),
         headers: {
           "content-type": "application/json",
         },
       });
-      setEditId("");
+      // setEditId("");
       return;
     }
 
