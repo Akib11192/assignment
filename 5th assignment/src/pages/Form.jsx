@@ -8,7 +8,8 @@ const Form = () => {
   const { id } = useParams();
   const { submitHandler } = useSubmitHandler();
   const navigation = useNavigate();
-  const { contacts, editId, setEditId, getData } = useContext(DataContext);
+  const { contacts, editId, setEditId, getData, newContact, setNewContact } =
+    useContext(DataContext);
 
   const [contact, setContact] = useState({
     first_name: "",
@@ -54,7 +55,7 @@ const Form = () => {
         className="bg-white py-5 flex flex-col gap-5"
         onSubmit={(e) => {
           e.preventDefault();
-          submitHandler(contact, setContact, id);
+          submitHandler(contact, setContact, id, newContact, setNewContact);
           navigation("/");
         }}
       >

@@ -5,6 +5,7 @@ const DataProvider = ({ children }) => {
   const [contacts, setContacts] = useState([]);
   const [editId, setEditId] = useState("");
   const [deleteId, setDeleteId] = useState("");
+  const [newContact, setNewContact] = useState([]);
 
   const getData = async () => {
     const res = await fetch("http://localhost:3000/contacts");
@@ -24,6 +25,8 @@ const DataProvider = ({ children }) => {
         setEditId,
         deleteId,
         setDeleteId,
+        newContact,
+        setNewContact,
       }}
     >
       {children}

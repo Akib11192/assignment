@@ -4,7 +4,8 @@ import { DataContext } from "../contexts/DataContext";
 import Modal from "../components/Modal";
 
 const Contacts = () => {
-  const { contacts, getData, deleteId, setDeleteId } = useContext(DataContext);
+  const { contacts, getData, deleteId, setDeleteId, newContact } =
+    useContext(DataContext);
   const [appliedSearch, setAppliedSearch] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("default");
@@ -39,7 +40,7 @@ const Contacts = () => {
 
   useEffect(() => {
     getData();
-  }, [contacts.length]);
+  }, [newContact]);
 
   return (
     <div className="max-w-6xl m-auto mt-6 [@media(min-width:1050px)]:rounded overflow-hidden bg-white">
