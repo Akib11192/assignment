@@ -56,7 +56,6 @@ const Form = () => {
           e.preventDefault();
           submitHandler(contact, setContact, id);
           navigation("/");
-          getData();
         }}
       >
         <Input
