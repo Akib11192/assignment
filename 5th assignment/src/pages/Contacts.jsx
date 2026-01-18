@@ -105,7 +105,9 @@ const Contacts = () => {
       <hr className="bg-gray-700" />
       <div id="contact-list" className="">
         {contacts.length === 0 ? (
-          <h2>no data</h2>
+          <h2 className="text-gray-600 my-10 uppercase text-center">
+            no contacts available
+          </h2>
         ) : (
           <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
             <table className="min-w-full divide-y divide-gray-200 text-sm">
