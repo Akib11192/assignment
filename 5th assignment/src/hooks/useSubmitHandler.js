@@ -3,8 +3,8 @@ const useSubmitHandler = () => {
     contact,
     setContact,
     id,
-    newContact,
-    setNewContact
+    setNewContact,
+    setIsEdit,
   ) => {
     if (id) {
       await fetch(`http://localhost:3000/contacts/${id}`, {
@@ -15,6 +15,7 @@ const useSubmitHandler = () => {
         },
       });
       // setEditId("");
+      setIsEdit(!true);
       return;
     }
 

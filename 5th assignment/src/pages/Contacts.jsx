@@ -4,8 +4,15 @@ import { DataContext } from "../contexts/DataContext";
 import Modal from "../components/Modal";
 
 const Contacts = () => {
-  const { contacts, getData, deleteId, setDeleteId, newContact } =
-    useContext(DataContext);
+  const {
+    contacts,
+    getData,
+    deleteId,
+    setDeleteId,
+    newContact,
+    isEdit,
+    setIsEdit,
+  } = useContext(DataContext);
   const [appliedSearch, setAppliedSearch] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("default");
@@ -40,7 +47,7 @@ const Contacts = () => {
 
   useEffect(() => {
     getData();
-  }, [newContact]);
+  }, [newContact, isEdit]);
 
   return (
     <div className="max-w-6xl m-auto mt-6 [@media(min-width:1050px)]:rounded overflow-hidden bg-white">
@@ -64,11 +71,11 @@ const Contacts = () => {
             </button>
           ) : (
             <button
-              type="submit"
+              // type="submit"
               className="px-4 py-2 bg-green-500 rounded-r-md text-white font-bold hover:bg-green-600 transition"
               onClick={() => {
-                setSearchTerm("");
                 setAppliedSearch("");
+                setSearchTerm("");
               }}
             >
               Clear

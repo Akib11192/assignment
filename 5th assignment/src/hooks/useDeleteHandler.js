@@ -6,7 +6,6 @@ const useDeleleHandler = () => {
   const navigate = useNavigate();
   const { getData } = useContext(DataContext);
   const deleteHandler = async (deleteId) => {
-    // console.log(typeof isId);
     await fetch(`http://localhost:3000/contacts/${deleteId}`, {
       method: "DELETE",
     });
