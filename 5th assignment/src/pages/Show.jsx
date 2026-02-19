@@ -11,7 +11,7 @@ const Show = () => {
     if (contacts.length === 0) {
       getData();
     }
-  }, []);
+  }, [contacts]);
   return (
     <div className="max-w-4xl mt-5 m-auto [@media(min-width:900px)]:rounded overflow-hidden bg-white">
       <div className="p-4 bg-blue-950 flex flex-row justify-between items-center">
