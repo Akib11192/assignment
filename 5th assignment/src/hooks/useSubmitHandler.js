@@ -1,7 +1,7 @@
 const useSubmitHandler = () => {
   const submitHandler = async (contact, setContact, id, setNewContact) => {
     if (id) {
-      await fetch(`http://localhost:3000/contacts/${id}`, {
+      await fetch(`https://fiveth-assignment.onrender.com/contacts/${id}`, {
         method: "PATCH",
         body: JSON.stringify({ ...contact }),
         headers: {
@@ -12,7 +12,7 @@ const useSubmitHandler = () => {
       return;
     }
 
-    await fetch("http://localhost:3000/contacts", {
+    await fetch("https://fiveth-assignment.onrender.com/contacts", {
       method: "POST",
       body: JSON.stringify(contact),
       headers: {
