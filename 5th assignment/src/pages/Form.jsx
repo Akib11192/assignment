@@ -55,14 +55,7 @@ const Form = () => {
         className="bg-white py-5 flex flex-col gap-5"
         onSubmit={(e) => {
           e.preventDefault();
-          submitHandler(
-            contact,
-            setContact,
-            id,
-            newContact,
-            setNewContact,
-            setIsEdit,
-          );
+          submitHandler(contact, setContact, id, newContact, setNewContact);
           navigation("/");
         }}
       >
