@@ -8,7 +8,7 @@ const DataProvider = ({ children }) => {
   const [newContact, setNewContact] = useState([]);
 
   const getData = async () => {
-    const res = await fetch("http://localhost:3000/contacts");
+    const res = await fetch("https://fiveth-assignment.onrender.com/contacts");
     const data = await res.json();
     setContacts(data);
   };
