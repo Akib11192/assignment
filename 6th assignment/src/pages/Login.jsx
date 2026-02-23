@@ -4,7 +4,7 @@ import {
   useSignInWithEmailPasswordMutation,
   useSocialLoginMutation,
 } from "../features/auth-api";
-import { githubProvider, googleProvider } from "../../firebaseConfig";
+import { googleProvider } from "../../firebaseConfig";
 
 const Login = () => {
   const navigate = useNavigate();

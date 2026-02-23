@@ -5,7 +5,7 @@ import { Navigate, Outlet, useLocation } from "react-router-dom";
 const CheckAuth = ({ children }) => {
   const location = useLocation();
   const { data: user, isLoading, error } = useGetCurrentUserQuery();
-  console.log(user);
+
   if (!user) {
     if (location.pathname === "/cart") {
       return <Navigate to="/login" />;
