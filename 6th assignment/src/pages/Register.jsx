@@ -95,11 +95,11 @@ const SignUp = () => {
           </button>
         </form>
 
-        {/* {error && (
+        {error && (
           <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg">
-            <p className="text-red-600 text-sm text-center">{error.message}</p>
+            <p className="text-red-600 text-sm text-center">{error}</p>
           </div>
-        )} */}
+        )}
 
         <p className="text-center text-sm text-gray-500 mt-4">
           Already have an account?{" "}

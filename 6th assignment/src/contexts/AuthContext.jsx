@@ -1,7 +1,7 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import authApi from "../features/auth-api";
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../../firebaseConfig";
 
 const AuthContext = createContext();
@@ -9,6 +9,7 @@ export const getAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
   const dispatch = useDispatch();
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {

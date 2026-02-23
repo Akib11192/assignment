@@ -1,5 +1,11 @@
 const useSubmitHandler = () => {
-  const submitHandler = async (contact, setContact, id, setNewContact) => {
+  const submitHandler = async (
+    contact,
+    setContact,
+    id,
+    setNewContact,
+    getData,
+  ) => {
     if (id) {
       await fetch(`https://fiveth-assignment.onrender.com/contacts/${id}`, {
         method: "PATCH",
@@ -27,8 +33,8 @@ const useSubmitHandler = () => {
       phone: "",
       address: "",
     });
+    getData();
   };
-
   return { submitHandler };
 };
 

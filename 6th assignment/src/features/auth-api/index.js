@@ -4,11 +4,9 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signInWithPopup,
-  updateProfile,
   signOut,
 } from "firebase/auth";
 import { doc, setDoc, getDoc, updateDoc } from "firebase/firestore";
-import { data } from "react-router-dom";
 
 const authApi = createApi({
   reducerPath: "auth",
@@ -26,12 +24,14 @@ const authApi = createApi({
           await setDoc(doc(db, "users", user.user.uid), {
             email: user.user.email,
             role: "user",
+            displayName: name,
           });
           return {
             data: {
               uid: user.user.uid,
               email,
               role: "user",
+              ...user,
             },
           };
         } catch (error) {
@@ -87,17 +87,43 @@ const authApi = createApi({
       },
       invalidatesTags: ["user"],
     }),
-    // socialLogin : builder.mutation({
-    //   async queryFn({provider , providerName}) {
-    //      try {
-    //       const res =  await signInWithPopup(auth , provider)
-    //       const docRef = doc(db , "users" , res.user.uid)
+    socialLogin: builder.mutation({
+      async queryFn({ provider, providerName }) {
+        try {
+          const result = await signInWithPopup(auth, provider);
+          const user = result.user;
 
-    //      } catch (error) {
+          const userDocRef = doc(db, "users", user.uid);
+          const userDoc = await getDoc(userDocRef);
 
-    //      }
-    //   }
-    // })
+          let userData;
+
+          if (!userDoc.exists()) {
+            userData = {
+              email: user.email,
+              role: "user",
+              displayName: user.displayName,
+            };
+
+            await setDoc(userDocRef, userData);
+          }
+
+          return {
+            data: {
+              email: user.email,
+              ...userData,
+            },
+          };
+        } catch (error) {
+          return {
+            error: {
+              code: error.code,
+            },
+          };
+        }
+      },
+      invalidatesTags: ["User"],
+    }),
   }),
 });
 
@@ -106,6 +132,7 @@ export const {
   useSignOutMutation,
   useGetCurrentUserQuery,
   useSignInWithEmailPasswordMutation,
+  useSocialLoginMutation,
 } = authApi;
 
 export default authApi;

@@ -1,18 +1,21 @@
-// Login.jsx
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
-import { useSignInWithEmailPasswordMutation } from "../features/auth-api";
+import {
+  useSignInWithEmailPasswordMutation,
+  useSocialLoginMutation,
+} from "../features/auth-api";
+import { githubProvider, googleProvider } from "../../firebaseConfig";
 
 const Login = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({ email: "", password: "" });
 
-  // RTK Query hooks
   const [SignIn, { isLoading: isEmailLoading, error: emailError }] =
     useSignInWithEmailPasswordMutation();
-
-  const isLoading = isEmailLoading;
-  const error = emailError;
+  const [socialLogin, { isLoading: isSocialLoading, error: socialError }] =
+    useSocialLoginMutation();
+  const isLoading = isEmailLoading || isSocialLoading;
+  const error = emailError || socialError;
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -27,21 +30,20 @@ const Login = () => {
         navigate("/");
       }
     } catch (err) {
-      // Error is already in error state
       console.error("Login failed:", err);
     }
   };
 
-  // const handleSocialLogin = async (provider, providerName) => {
-  //   try {
-  //     const result = await socialLogin({ provider, providerName }).unwrap();
-  //     if (result) {
-  //       navigate("/");
-  //     }
-  //   } catch (err) {
-  //     console.error("Social login failed:", err);
-  //   }
-  // };
+  const handleSocialLogin = async (provider, providerName) => {
+    try {
+      const result = await socialLogin({ provider, providerName }).unwrap();
+      if (result) {
+        navigate("/");
+      }
+    } catch (err) {
+      console.error("Social login failed:", err);
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -92,7 +94,7 @@ const Login = () => {
           </button>
         </form>
 
-        {/* <div className="mt-4 space-y-2">
+        <div className="mt-4 space-y-2">
           <button
             onClick={() => handleSocialLogin(googleProvider, "google")}
             disabled={isLoading}
@@ -100,25 +102,18 @@ const Login = () => {
           >
             {isSocialLoading ? "Processing..." : "Sign in with Google"}
           </button>
-          <button
-            onClick={() => handleSocialLogin(githubProvider, "github")}
-            disabled={isLoading}
-            className="w-full px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-900 transition-colors disabled:bg-gray-400"
-          >
-            {isSocialLoading ? "Processing..." : "Sign in with GitHub"}
-          </button>
-        </div> */}
+        </div>
 
         <p className="text-center text-sm text-gray-500 mt-4">
           Don't have an account?{" "}
-          <Link to="/signup" className="text-green-600 hover:underline">
-            Sign up
+          <Link to="/register" className="text-green-600 hover:underline">
+            Register
           </Link>
         </p>
 
         {error && (
           <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg">
-            <p className="text-red-600 text-sm text-center">{error.message}</p>
+            <p className="text-red-600 text-sm text-center">{error}</p>
           </div>
         )}
       </div>
